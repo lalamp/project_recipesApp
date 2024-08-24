@@ -48,25 +48,21 @@ const UserAccount = () => {
         </div>
 
         {/* Posts */}
-        <div className="p-3">
-          <p className="font-bold text-gray-600 mb-2">POSTS</p>
-          <div className="grid grid-cols-2 justify-items-center gap-2 sm:flex sm:flex-wrap sm:justify-center md:overflow-auto md:h-5/6">
-              <RecipeCard/>
-              <RecipeCard/>
-              <RecipeCard/>
-              <RecipeCard/>
-              <RecipeCard/>
-              <RecipeCard/>
-              <RecipeCard/>
-              <RecipeCard/>
-              <RecipeCard/>
-              <RecipeCard/>
-              <RecipeCard/>
-              <RecipeCard/>
-              <RecipeCard/>
-          </div>
+        < div className="grid grid-cols-2 justify-items-center gap-2 sm:flex sm:flex-wrap sm:justify-center md:overflow-auto md:h-5/6 m-5">
+            <RecipeCard/>
+            <RecipeCard/>
+            <RecipeCard/>
+            <RecipeCard/>
+            <RecipeCard/>
+            <RecipeCard/>
+            <RecipeCard/>
+            <RecipeCard/>
+            <RecipeCard/>
+            <RecipeCard/>
+            <RecipeCard/>
+            <RecipeCard/>
+            <RecipeCard/>
         </div>
-        
       </main>
     </div>
   );

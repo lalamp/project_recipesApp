@@ -6,7 +6,9 @@ export default function Home() {
   return (
     <>
       <Header1 />
-      <LoginForm />
+      <div className="w-full flex justify-center h-4/5">
+        <LoginForm />
+      </div>
     </>
   )
 }

@@ -1,6 +1,6 @@
 import CreatAccount from "../components/CreatAccout"
 
-export default function Home() {
+export default function CreateAccount() {
   return (
     <>
         <CreatAccount />

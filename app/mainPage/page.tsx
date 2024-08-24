@@ -10,7 +10,7 @@ import { Button } from "../components/ui/button"
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 
-export default function Home() {
+export default function MainPage() {
   return (
     <div className="flex flex-col h-screen">
       {/* Header */}

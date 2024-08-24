@@ -43,7 +43,7 @@ export default function Home() {
             <p className="font-bold text-gray-600 mb-2">FOLLOWING</p>
             <div className="flex w-full items-center">
               <Button className="p-0 mr-2"><IoIosArrowBack/></Button>
-              <div className="flex w-full gap-4 overflow-auto [&::-webkit-scrollbar]:hidden mb-5">
+              <div className="flex w-full gap-2 overflow-auto [&::-webkit-scrollbar]:hidden mb-5">
                   <RecipeCard />
                   <RecipeCard />
                   <RecipeCard />

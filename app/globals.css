@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  height: 100vh;
-}
-
 @layer base {
   .dark {
     --background: 225 9% 9%;

@@ -1,4 +1,5 @@
 import Header2 from "@/app/components/Header2";
+import RecipeCard from "@/app/components/RecipeCard";
 import {
   Avatar,
   AvatarFallback,
@@ -11,9 +12,9 @@ const UserAccount = () => {
     <>
       <Header2 />
 
-      <main className="flex flex-col m-2 md:flex-row md:pl-5 gap-2">
+      <main className="flex flex-col m-2 md:flex-row md:pl-5 gap-2 md:gap-8">
         {/* Perfil */}
-        <div className="flex md:flex-col items-center justify-center p-3 w-full md:w-2/6 lg:w-1/5 border border-black gap-5 md:gap-2">
+        <div className="flex md:flex-col items-center justify-center p-3 w-full md:w-2/6 lg:w-1/5 gap-5 md:gap-2">
           {/* Avatar */}
           <div className="flex flex-col text-center">
             <Avatar className="h-28 w-28 md:w-36 md:h-36">
@@ -36,7 +37,7 @@ const UserAccount = () => {
                 <p>Following</p>
               </Button>
             </div>
-            <p className="text-rose-950 bg-gray-100 rounded-md w-full text-center">
+            <p className="text-rose-950 bg-gray-100 rounded-md w-full text-center p-2">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et,
               earum quas. Quidem odit, minus totam reiciendis incidunt fugiat?
               Officiis sed deleniti nesciunt placeat possimus eveniet impedit
@@ -46,7 +47,9 @@ const UserAccount = () => {
         </div>
 
         {/* Posts */}
-        <div className="border border-black h-20 w-1/2">
+        <div className="h-fit w-full p-3">
+            <p className="font-bold text-gray-600 mb-2">POSTS</p>
+            <RecipeCard/> {/* map com todas as receitas */}
         </div>
       </main>
     </>

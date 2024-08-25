@@ -1,23 +1,16 @@
 import Image from "next/image";
 
 import { Button } from "./ui/button";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-  } from "./ui/card"
+import {Card, CardContent, CardHeader, CardTitle} from "./ui/card"
 
 import { FaRegStar } from "react-icons/fa";
 import { IoIosTimer } from "react-icons/io";
   
 const RecipeCard = () => {
     return ( 
-        <div className="relative w-56 h-60 md:h-64">
+        <div className="relative w-52 h-64 md:h-64 flex-nowrap">
             {/* Background */}
-            <div className="absolute w-56 h-60 md:h-64 opacity-35 rounded-lg"
+            <div className="absolute w-52 h-64 md:h-64 flex-nowrap opacity-35 rounded-lg"
                 style={{
                     backgroundImage: `url("/recipe-photo.jpg")`,
                     backgroundSize: 'cover',
@@ -27,7 +20,7 @@ const RecipeCard = () => {
             ></div>
 
             {/* Card */}
-            <Card className="absolute w-56 h-60 md:h-64 flex flex-col justify-center items-center rounded-lg border-none bg-transparent text-rose-950 font-bold p-2">
+            <Card className="relative flex-nowrap w-52 h-64 md:h-64 flex flex-col justify-center items-center rounded-lg border-none bg-transparent text-rose-950 font-bold p-2">
                 <CardHeader className="h-full w-full space-y-0 p-0 flex flex-col justify-center items-center">
                     <CardTitle className="text-lg mb-2">Recipe Title</CardTitle>
                     <Image

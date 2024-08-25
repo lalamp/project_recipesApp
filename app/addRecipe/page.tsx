@@ -10,9 +10,6 @@ import { Button } from "../components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger} from "../components/ui/dialog"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "../components/ui/select"
 import {Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow} from "../components/ui/table"
-  
-  
-
 
 export default function AddRecipe() {
   return (
@@ -48,7 +45,7 @@ export default function AddRecipe() {
                     className="w-full h-8 rounded-sm border border-rose-950 bg-gray-100"
                 />  
             </div>
-            {/* Tempo e Porções */}
+            {/* Tempo, Porções e Categoria */}
             <div className="flex gap-8">
                 {/* Tempo */}
                 <div>
@@ -75,6 +72,18 @@ export default function AddRecipe() {
                         required
                         className="w-24 h-6 rounded-sm border border-rose-950 bg-gray-100"
                     />   
+                </div>
+                {/* Categoria TODO: escolher mais de uma */}
+                <div>
+                    <Label htmlFor="input_tempo">Categorias</Label>
+                    <Select>
+                        <SelectTrigger className="w-28 h-6 rounded-sm border border-rose-950 bg-gray-100 text-gray-400">
+                            <SelectValue placeholder="Categorias" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-white text-rose-950">
+                            <SelectItem value="Almoço">Almoço</SelectItem>
+                        </SelectContent>
+                    </Select>
                 </div>
             </div>
             {/* Calorias e Macros */}
@@ -166,7 +175,7 @@ export default function AddRecipe() {
 
                     {/* Ingrediente e Medida */}
                     <div className="flex gap-3 items-center">
-                        {/* Ingrediente */}
+                        {/* Ingrediente TODO: alterar para Combobox */}
                         <Select>
                             <SelectTrigger className="w-1/2">
                                 <SelectValue placeholder="Ingrediente" />

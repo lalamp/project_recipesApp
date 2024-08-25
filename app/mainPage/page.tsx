@@ -26,7 +26,7 @@ export default function MainPage() {
         {/* Busca Rápida */}
         <div className="flex w-full items-center justify-center">
             <Button className="p-0"><IoIosArrowBack/></Button>
-            <div className="flex w-4/5 m-5 gap-2 overflow-auto [&::-webkit-scrollbar]:hidden md:justify-center">
+            <div className="flex w-4/5 m-5 gap-2 overflow-auto [&::-webkit-scrollbar]:hidden sm:justify-center">
                 <Button className="bg-rose-950 text-white">Almoço</Button>
                 <Button className="bg-rose-950 text-white">Jantar</Button>
                 <Button className="bg-rose-950 text-white">Saudável</Button>
@@ -43,7 +43,7 @@ export default function MainPage() {
             <p className="font-bold text-gray-600 mb-2">FOLLOWING</p>
             <div className="flex w-full items-center">
               <Button className="p-0 mr-2"><IoIosArrowBack/></Button>
-              <div className="flex w-full gap-2 overflow-auto [&::-webkit-scrollbar]:hidden mb-5">
+              <div className="w-full flex flex-nowrap gap-3 overflow-auto [&::-webkit-scrollbar]:hidden mb-5">
                   <RecipeCard />
                   <RecipeCard />
                   <RecipeCard />
@@ -55,7 +55,9 @@ export default function MainPage() {
             <p className="font-bold text-gray-600 mb-2">HIGHEST SCORE</p>
             <div className="flex w-full items-center">
               <Button className="p-0 mr-2"><IoIosArrowBack/></Button>
-              <div className="w-full flex gap-4 overflow-auto [&::-webkit-scrollbar]:hidden mb-5">
+              <div className="w-full flex gap-3 overflow-auto [&::-webkit-scrollbar]:hidden mb-5">
+                  <RecipeCard />
+                  <RecipeCard />
                   <RecipeCard />
               </div>
               <Button className="p-0 ml-2"><IoIosArrowForward/></Button>

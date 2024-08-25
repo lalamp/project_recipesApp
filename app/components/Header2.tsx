@@ -21,7 +21,7 @@ const Header2 = () => {
           </Link>
 
           {/* Create Recipe */}
-          <Link href="/addRecipe">
+          <Link href="/recipePage">
             <Button>
               <MdOutlineFoodBank className="w-10 h-8 text-white" />
             </Button>

@@ -1,6 +1,6 @@
+"use client"
 import React from "react"
-import Image from "next/image"
-
+import Select from 'react-select';
 import Header2 from "../components/Header2"
 
 import { Textarea } from "../components/ui/textarea"
@@ -8,8 +8,12 @@ import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
 import { Button } from "../components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger} from "../components/ui/dialog"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "../components/ui/select"
-import {Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow} from "../components/ui/table"
+import { Select as ShadcnSelect, SelectContent, SelectItem, SelectTrigger, SelectValue} from "../components/ui/select"
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "../components/ui/table"
+import {Command, CommandEmpty, CommandInput, CommandItem, CommandList} from "../components/ui/command"
+import {Popover, PopoverContent, PopoverTrigger} from "../components/ui/popover"
+
+import { ChevronDown, X } from "lucide-react"
 
 export default function AddRecipe() {
   return (
@@ -73,19 +77,20 @@ export default function AddRecipe() {
                         className="w-24 h-6 rounded-sm border border-rose-950 bg-gray-100"
                     />   
                 </div>
-                {/* Categoria TODO: escolher mais de uma */}
-                <div>
-                    <Label htmlFor="input_tempo">Categorias</Label>
-                    <Select>
-                        <SelectTrigger className="w-28 h-6 rounded-sm border border-rose-950 bg-gray-100 text-gray-400">
-                            <SelectValue placeholder="Categorias" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-white text-rose-950">
-                            <SelectItem value="Almoço">Almoço</SelectItem>
-                        </SelectContent>
-                    </Select>
-                </div>
             </div>
+            
+            {/* Categoria */}
+            <div className="flex flex-col gap-1">
+                <Label>Categorias</Label>
+                <Select
+                    isMulti
+                    options={[{ value: 'chocolate', label: 'Chocolate' },
+                        { value: 'strawberry', label: 'Strawberry' },
+                        { value: 'vanilla', label: 'Vanilla' }]}
+                    className="rounded-sm border border-rose-950 bg-gray-100"
+                />
+            </div>
+
             {/* Calorias e Macros */}
             <div className="flex gap-8">
                 {/* Calorias */}
@@ -175,15 +180,26 @@ export default function AddRecipe() {
 
                     {/* Ingrediente e Medida */}
                     <div className="flex gap-3 items-center">
-                        {/* Ingrediente TODO: alterar para Combobox */}
-                        <Select>
-                            <SelectTrigger className="w-1/2">
-                                <SelectValue placeholder="Ingrediente" />
-                            </SelectTrigger>
-                            <SelectContent className="bg-white text-rose-950">
-                                <SelectItem value="ingrediente">Ingrediente</SelectItem>
-                            </SelectContent>
-                        </Select>
+                        {/* Ingrediente */}
+                        <Popover>
+                            <PopoverTrigger asChild>
+                                <Button className="w-1/2 font-normal border border-gray-200 justify-between">
+                                    Ingrediente
+                                    <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                </Button>
+                            </PopoverTrigger>
+                            <PopoverContent className="ml-2 bg-white text-rose-950">
+                                <Command>
+                                    <CommandInput placeholder="Insira um ingrediente..." />
+                                        <CommandList>
+                                            <CommandEmpty>Nenhum resultado encontrado</CommandEmpty>
+                                                <CommandItem>Arroz</CommandItem>
+                                                <CommandItem>Feijão</CommandItem>
+                                                <CommandItem>Ovo</CommandItem>
+                                        </CommandList>
+                                </Command>
+                            </PopoverContent>
+                        </Popover>
 
                         <p>-</p>
 
@@ -197,7 +213,7 @@ export default function AddRecipe() {
                             required
                             className="w-14 rounded-sm border- text-rose-950 border-gray-100"
                         />
-                        <Select>
+                        <ShadcnSelect>
                             <SelectTrigger className="w-1/2">
                                 <SelectValue placeholder="Medida"/>
                             </SelectTrigger>
@@ -209,7 +225,7 @@ export default function AddRecipe() {
                                 <SelectItem value="colher-sopa">colher(es) de sopa</SelectItem>
                                 <SelectItem value="colher-chá">colher(es) de chá</SelectItem>
                             </SelectContent>
-                        </Select>
+                        </ShadcnSelect>
                     </div>
 
                     {/* Botão para confirmar a adição dos ingredientes escolhidos */}
@@ -223,12 +239,14 @@ export default function AddRecipe() {
                     <TableRow>
                         <TableHead>Ingredientes</TableHead>
                         <TableHead>Medida</TableHead>
+                        <TableHead className="w-3"></TableHead>
                     </TableRow>
                 </TableHeader>
-                <TableBody>
+                <TableBody className="font-normal">
                     <TableRow>
-                        <TableCell className="font-normal">Ovo</TableCell>
+                        <TableCell>Ovo</TableCell>
                         <TableCell>1 unidade</TableCell>
+                        <TableCell><Button><X className="w-5"/></Button></TableCell>
                     </TableRow>
                 </TableBody>
             </Table>

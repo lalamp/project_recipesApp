@@ -11,12 +11,13 @@ import { FaBowlFood } from "react-icons/fa6";
 
 const RecipePage = () => {
     return ( 
-        <>
+        <div className="flex flex-col h-screen">
             {/* Header */}
             <Header2 />
 
             {/* Main */}
-            <main className="flex flex-col items-center gap-2">
+            <main className="flex flex-col items-center gap-2 lg:flex-row lg:gap-3 lg:flex-1">
+                <div className="flex flex-col items-center gap-2 lg:w-4/5 xl:w-2/5 ">
                 {/* Nome */}
                 <h1 className="text-xl text-rose-950 font-bold">NOME DA RECEITA</h1>
 
@@ -75,15 +76,15 @@ const RecipePage = () => {
                     <CarouselPrevious className="bg-rose-950 text-white ml-2"/>
                     <CarouselNext className="bg-rose-950 text-white mr-2"/>
                 </Carousel>
-                
+                </div>
 
                 {/* Ingredientes, Calorias e Macros*/}
-                <div className="flex gap-6 w-4/5">
+                <div className="flex gap-6 w-4/5 lg:flex-col lg:mr-5 lg:my-3">
                     {/* Ingredientes */}
                     <div className="w-full">
                         <p className="bg-rose-950 text-white font-bold px-2 rounded-md text-sm w-fit">INGREDIENTES</p>
                         {/* Tabela com os ingredientes */}
-                        <div className="h-[200px] overflow-auto border border-gray-300 rounded-md mt-2">
+                        <div className="max-h-[200px] lg:max-h-[400px] overflow-auto border border-gray-300 rounded-md mt-2">
                            <Table>
                                 <TableHeader>
                                     <TableRow>
@@ -91,27 +92,7 @@ const RecipePage = () => {
                                         <TableHead>Medida</TableHead>
                                     </TableRow>
                                 </TableHeader>
-                                <TableBody className="h-[200px] overflow-auto">
-                                    <TableRow>
-                                        <TableCell>Ovo</TableCell>
-                                        <TableCell>1 unidade</TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>Ovo</TableCell>
-                                        <TableCell>1 unidade</TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>Ovo</TableCell>
-                                        <TableCell>1 unidade</TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>Ovo</TableCell>
-                                        <TableCell>1 unidade</TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>Ovo</TableCell>
-                                        <TableCell>1 unidade</TableCell>
-                                    </TableRow>
+                                <TableBody className="overflow-auto">
                                     <TableRow>
                                         <TableCell>Ovo</TableCell>
                                         <TableCell>1 unidade</TableCell>
@@ -126,14 +107,14 @@ const RecipePage = () => {
                     </div>
 
                     {/* Infos: calorias e macros */}
-                    <div className="flex flex-col gap-2 h-fit p-2 px-3 text-sm rounded-lg bg-rose-950 text-white">
+                    <div className="flex flex-col gap-2 h-fit max-w-fit p-2 px-3 text-sm rounded-lg bg-rose-950 text-white">
                             <p>Calorias: 300kcal</p>
                             <p>Carboidratos: 20g</p>
                             <p>Proteínas: 18g</p>
                     </div>
                 </div>                
             </main>
-        </>
+        </div>
     );
 }
  

@@ -1,6 +1,5 @@
 "use client"
 import React from "react"
-import Select from 'react-select';
 import Header2 from "../components/Header2"
 
 import { Textarea } from "../components/ui/textarea"
@@ -12,6 +11,7 @@ import { Select as ShadcnSelect, SelectContent, SelectItem, SelectTrigger, Selec
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "../components/ui/table"
 import {Command, CommandEmpty, CommandInput, CommandItem, CommandList} from "../components/ui/command"
 import {Popover, PopoverContent, PopoverTrigger} from "../components/ui/popover"
+import SelectPersonalized from "../components/ui/select-style";
 
 import { ChevronDown, X } from "lucide-react"
 
@@ -49,7 +49,7 @@ export default function AddRecipe() {
                     className="w-full h-8 rounded-sm border border-rose-950 bg-gray-100"
                 />  
             </div>
-            {/* Tempo, Porções e Categoria */}
+            {/* Tempo e Porções*/}
             <div className="flex gap-8">
                 {/* Tempo */}
                 <div>
@@ -82,13 +82,7 @@ export default function AddRecipe() {
             {/* Categoria */}
             <div className="flex flex-col gap-1">
                 <Label>Categorias</Label>
-                <Select
-                    isMulti
-                    options={[{ value: 'chocolate', label: 'Chocolate' },
-                        { value: 'strawberry', label: 'Strawberry' },
-                        { value: 'vanilla', label: 'Vanilla' }]}
-                    className="rounded-sm border border-rose-950 bg-gray-100"
-                />
+                <SelectPersonalized />
             </div>
 
             {/* Calorias e Macros */}

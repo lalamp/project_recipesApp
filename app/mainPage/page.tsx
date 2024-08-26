@@ -1,5 +1,4 @@
 import React from "react"
-import Image from "next/image"
 
 import Header2 from "../components/Header2"
 import RecipeCard from "../components/RecipeCard"

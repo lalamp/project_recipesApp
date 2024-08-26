@@ -1,5 +1,7 @@
 "use client";
 
+import { signIn } from "next-auth/react"
+
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 
@@ -32,7 +34,10 @@ const LoginForm = () => {
 
           {/* Login com Google */}
           <p className="text-center text-xs my-2">OU</p>
-          <Button className="gap-2 border-black border">
+          <Button 
+            onClick={() => signIn('google', {callbackUrl: "/mainPage"})} 
+            className="gap-2 border-black border"
+          >
             <Image
               alt="Fazer login com Google"
               src="/google-icon.png"

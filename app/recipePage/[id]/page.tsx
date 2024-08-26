@@ -16,8 +16,8 @@ const RecipePage = () => {
             <Header2 />
 
             {/* Main */}
-            <main className="flex flex-col items-center gap-2 lg:flex-row lg:gap-3 lg:flex-1">
-                <div className="flex flex-col items-center gap-2 lg:w-4/5 xl:w-2/5 ">
+            <main className="flex-1 flex flex-col items-center gap-2 lg:flex-row lg:gap-3 overflow-auto">
+                <div className="flex flex-col items-center gap-2 lg:w-4/5 xl:w-2/5">
                     {/* Nome */}
                     <div className="flex flex-col items-center">
                         <h1 className="text-xl text-rose-950 font-bold">NOME DA RECEITA</h1>

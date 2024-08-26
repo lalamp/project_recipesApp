@@ -9,6 +9,58 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "cockroachdb"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int       @id @default(sequence())
+  name          String
+  username      String    @unique
+  email         String    @unique
+  password      String
+  perfil_photo  String?
+  bio           String?
+
+  recipe        Recipe[]    @relation("UserRecipes")
+  followedBy    Follows[]   @relation("FollowedBy")
+  following     Follows[]   @relation("Following")
+}
+
+model Follows {
+  followerId  Int 
+  follower    User    @relation("FollowedBy", fields: [followerId], references: [id])
+  followingId  Int
+  following    User   @relation("Following", fields: [followingId], references: [id])
+  
+  @@id([followerId, followingId])
+}
+
+model Recipe {
+  id             Int         @id @default(sequence())
+  userId         Int
+  createdDate    DateTime    @default(now())
+  name           String
+  avaliation     Float?
+  description    String
+  images         String[]
+  videos         String[] 
+  time           Int
+  portions       Int
+  categories     String[]
+  calories       Float?
+  carbohydrates  Float?
+  proteins       Float?
+  ingredients    Ingredient[] @relation("RecipeIngredients")
+
+  user           User        @relation("UserRecipes", fields: [userId], references: [id])
+}
+
+model Ingredient {
+  id             Int       @id @default(sequence())
+  recipeId       Int
+  quantity       Float
+  unitMeasure    String
+
+  recipe         Recipe    @relation("RecipeIngredients", fields: [recipeId], references: [id])
 }

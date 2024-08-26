@@ -1,5 +1,4 @@
-"use client";
-
+'use client'
 import { signIn } from "next-auth/react"
 
 import { Input } from "./ui/input";
@@ -35,7 +34,7 @@ const LoginForm = () => {
           {/* Login com Google */}
           <p className="text-center text-xs my-2">OU</p>
           <Button 
-            onClick={() => signIn('google', {callbackUrl: "/mainPage"})} 
+            onClick={() => signIn('google')} 
             className="gap-2 border-black border"
           >
             <Image

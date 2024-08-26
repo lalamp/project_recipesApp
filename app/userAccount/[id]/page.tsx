@@ -1,6 +1,3 @@
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
-
 import Header2 from "@/app/components/Header2";
 import RecipeCard from "@/app/components/RecipeCard";
 
@@ -11,12 +8,7 @@ import {
 } from "@/app/components/ui/avatar";
 import { Button } from "@/app/components/ui/button";
 
-const UserAccount = async () => {
-  const session = await getServerSession()
-  if(!session){
-    return redirect("/")
-  }
-
+const UserAccount = () => {
   return (
     <div className="flex flex-col h-screen">
       {/* Header */}
@@ -29,15 +21,15 @@ const UserAccount = async () => {
           {/* Avatar */}
           <div className="flex flex-col text-center">
             <Avatar className="h-28 w-28 md:w-36 md:h-36">
-              <AvatarImage src={session.user?.image ?? ""} />
+              <AvatarImage src="" />
               <AvatarFallback>Imagem de Perfil</AvatarFallback>
             </Avatar>
-            <p className="text-rose-950 font-bold">{session.user?.name}</p>
+            <p className="text-rose-950 font-bold">name</p>
           </div>
 
           {/* Infos Perfil */}
           <div className="flex flex-col items-center gap-5 w-4/5 md:w-full">
-            <h3 className="text-rose-950 font-bold">@{session.user?.email}</h3>
+            <h3 className="text-rose-950 font-bold">@username</h3>
             <div className="flex flex-row  w-full justify-center">
               <Button className="flex flex-col font-normal">
                 <p>0</p>

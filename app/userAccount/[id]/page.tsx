@@ -1,6 +1,9 @@
+'use client'
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
+
 import Header2 from "@/app/components/Header2";
 import RecipeCard from "@/app/components/RecipeCard";
-
 import {
   Avatar,
   AvatarFallback,
@@ -9,6 +12,11 @@ import {
 import { Button } from "@/app/components/ui/button";
 
 const UserAccount = () => {
+  const {data : session} = useSession()
+  if(!session){
+    redirect("/") 
+  }
+
   return (
     <div className="flex flex-col h-screen">
       {/* Header */}
@@ -19,17 +27,17 @@ const UserAccount = () => {
         {/* Perfil */}
         <div className="flex md:flex-col items-center p-3 w-full md:w-2/6 lg:w-1/5 gap-5 md:gap-2">
           {/* Avatar */}
-          <div className="flex flex-col text-center">
+          <div className="flex flex-col text-center items-center">
             <Avatar className="h-28 w-28 md:w-36 md:h-36">
-              <AvatarImage src="" />
+              <AvatarImage src={session.user?.image ?? ""} />
               <AvatarFallback>Imagem de Perfil</AvatarFallback>
             </Avatar>
-            <p className="text-rose-950 font-bold">name</p>
+            <p className="text-rose-950 font-bold">{session.user?.name}</p>
           </div>
 
           {/* Infos Perfil */}
           <div className="flex flex-col items-center gap-5 w-4/5 md:w-full">
-            <h3 className="text-rose-950 font-bold">@username</h3>
+            <h3 className="text-rose-950 font-bold">@{session.user?.name}</h3>
             <div className="flex flex-row  w-full justify-center">
               <Button className="flex flex-col font-normal">
                 <p>0</p>

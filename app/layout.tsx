@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import AuthProvider from "./components/Providers";
+import AuthProvider from "./components/AuthProvider";
 
 export const metadata: Metadata = {
   title: "Recipies App",

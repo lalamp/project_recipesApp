@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link";
 
 import { IoMdHome } from "react-icons/io";
@@ -6,8 +7,15 @@ import { MdOutlineFoodBank } from "react-icons/md";
 import { LuAlignJustify } from "react-icons/lu";
 
 import { Button } from "./ui/button";
+import { signOut, useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 const Header2 = () => {
+  const {data : session} = useSession()
+  if(!session){
+    redirect("/") 
+  }
+  
   return (
     <>
       <header className="flex justify-center items-center bg-rose-950 h-20 sm:h-24 w-full mb-5 relative">
@@ -28,7 +36,7 @@ const Header2 = () => {
           </Link>
 
           {/* User Page */}
-          <Link href="/userAccount/1">
+          <Link href={`/userAccount/${session.user?.name}`}>
             <Button>
               <IoPersonSharp className="w-10 h-7 text-white" />
             </Button>
@@ -36,7 +44,7 @@ const Header2 = () => {
         </div>
 
         {/* Side Sheet */}
-        <Button className="absolute right-2 md:right-5">
+        <Button className="absolute right-2 md:right-5" onClick={() => signOut({callbackUrl: "/"})}>
             <LuAlignJustify className="w-10 h-7 text-white" />
         </Button>
       </header>

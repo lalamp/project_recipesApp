@@ -34,7 +34,7 @@ const LoginForm = () => {
           {/* Login com Google */}
           <p className="text-center text-xs my-2">OU</p>
           <Button 
-            onClick={() => signIn('google')} 
+            onClick={() => signIn('google', {callbackUrl: "/mainPage"})} 
             className="gap-2 border-black border"
           >
             <Image

@@ -8,13 +8,13 @@ import Link from "next/link";
 
 const CreatAccount = () => {
   return (
-    <>
+    <div className="flex flex-col h-screen">
       {/* Header */}
       <Header1 />
 
       {/* Caixa de Criar Conta */}
-      <div className="w-full flex justify-center h-4/5">
-        <div className="relative flex flex-col items-center rounded-lg p-12 sm:p-20 border-red-950 border-4 w-11/12 lg:w-3/5">
+      <div className="flex-1 w-full flex justify-center items-center">
+        <div className="h-4/5 relative flex flex-col items-center rounded-lg p-12 sm:p-20 border-red-950 border-4 w-11/12 lg:w-3/5">
           <h1 className="text-4xl text-center text-rose-950 mb-7">
             CRIAR CONTA
           </h1>
@@ -62,7 +62,7 @@ const CreatAccount = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

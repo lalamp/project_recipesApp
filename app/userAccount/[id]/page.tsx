@@ -29,7 +29,7 @@ const UserAccount = () => {
           {/* Avatar */}
           <div className="flex flex-col text-center items-center">
             <Avatar className="h-28 w-28 md:w-36 md:h-36">
-              <AvatarImage src={session.user?.image ?? ""} />
+              <AvatarImage src={session.user?.image} />
               <AvatarFallback>Imagem de Perfil</AvatarFallback>
             </Avatar>
             <p className="text-rose-950 font-bold">{session.user?.name}</p>

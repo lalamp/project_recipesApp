@@ -12,9 +12,6 @@ import { redirect } from "next/navigation";
 
 const Header2 = () => {
   const {data : session} = useSession()
-  if(!session){
-    redirect("/") 
-  }
   
   return (
     <>
@@ -36,7 +33,7 @@ const Header2 = () => {
           </Link>
 
           {/* User Page */}
-          <Link href={`/userAccount/${session.user?.name}`}>
+          <Link href={`/userAccount/${session?.user?.id}`}>
             <Button>
               <IoPersonSharp className="w-10 h-7 text-white" />
             </Button>

@@ -9,59 +9,21 @@ datasource db {
 
 model User {
   id            String    @id @default(cuid())
-  name          String
-  email         String   @unique
+  name          String?
+  email         String    @unique
   emailVerified DateTime?
   image         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
   accounts      Account[]
   sessions      Session[]
 
-  username       String    @unique @default("")
-  bio            String?   
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  recipes        Recipe[]     @relation("UserRecipes")
+  username       String?
+  bio            String?
+  recipes        Recipe[]     
   followers      User[]       @relation("UserFollowers")
   following      User[]       @relation("UserFollowers")
-}
-
-model Recipe {
-  id             String       @id @default(cuid())
-  idUser         String
-  createdDate    DateTime     @default(now())
-  rating         Float?       
-  name           String
-  description    String
-  images         String[]     
-  videos         String[]    
-  time           Int          
-  portions       Int          
-  categories     String[]     
-  calories       Float?
-  carbohydrates  Float?
-  proteins       Float?
-  ingredients    IngredientOnRecipe[]
-
-  user           User         @relation("UserRecipes", fields: [idUser], references: [id])
-}
-model Ingredient {
-  id            String    @id @default(cuid())
-  name          String
-  quantity      Float
-  unitMeasure   String
-  recipes    IngredientOnRecipe[]
-}
-
-model IngredientOnRecipe {
-  id            String     @id @default(cuid())
-  recipeId      String
-  ingredientId  String
-
-  recipe        Recipe      @relation(fields: [recipeId], references: [id])
-  ingredient    Ingredient  @relation(fields: [ingredientId], references: [id])
-
-  @@unique([recipeId, ingredientId])
 }
 
 model Account {
@@ -101,4 +63,42 @@ model VerificationRequest {
   expires    DateTime
 
   @@id([identifier, token])
+}
+
+model Recipe {
+  id             String       @id @default(uuid())
+  idUser         String
+  createdDate    DateTime     @default(now())
+  rating         Float?       
+  name           String
+  description    String
+  images         String[]     
+  videos         String[]    
+  time           Int          
+  portions       Int          
+  categories     String[]     
+  calories       Float?
+  carbohydrates  Float?
+  proteins       Float?
+  ingredients    IngredientOnRecipe[]
+
+  user           User         @relation(fields: [idUser], references: [id])
+}
+model Ingredient {
+  id            String    @id @default(uuid())
+  name          String
+  quantity      Float
+  unitMeasure   String
+  recipes    IngredientOnRecipe[]
+}
+
+model IngredientOnRecipe {
+  id            String     @id @default(uuid())
+  recipeId      String
+  ingredientId  String
+
+  recipe        Recipe      @relation(fields: [recipeId], references: [id])
+  ingredient    Ingredient  @relation(fields: [ingredientId], references: [id])
+
+  @@unique([recipeId, ingredientId])
 }

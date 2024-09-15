@@ -44,9 +44,6 @@ export default function MainPage() {
             <div className="flex w-full items-center">
               <Button className="p-0 mr-2"><IoIosArrowBack/></Button>
               <div className="w-full flex flex-nowrap gap-3 overflow-auto [&::-webkit-scrollbar]:hidden mb-5">
-                  <RecipeCard />
-                  <RecipeCard />
-                  <RecipeCard />
               </div>
               <Button className="p-0 ml-2"><IoIosArrowForward/></Button>
             </div>
@@ -56,9 +53,6 @@ export default function MainPage() {
             <div className="flex w-full items-center">
               <Button className="p-0 mr-2"><IoIosArrowBack/></Button>
               <div className="w-full flex gap-3 overflow-auto [&::-webkit-scrollbar]:hidden mb-5">
-                  <RecipeCard />
-                  <RecipeCard />
-                  <RecipeCard />
               </div>
               <Button className="p-0 ml-2"><IoIosArrowForward/></Button>
             </div>

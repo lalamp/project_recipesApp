@@ -52,7 +52,7 @@ const Header2 = () => {
             {/* Editar Perfil */}
             <Dialog>
               <DialogTrigger className="w-full p-1 text-rose-950 text-sm font-bold border-solid border-2 border-rose-950">Editar Perfil</DialogTrigger>
-              <EditarPerfil />
+              <EditarPerfil user={session?.user} />
             </Dialog>
 
             {/* LogOut */}

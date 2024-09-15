@@ -7,14 +7,13 @@ import {DialogContent, DialogDescription, DialogHeader, DialogTitle } from "./ui
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 import { Input } from "./ui/input";
+import { User } from "@prisma/client";
 
+interface EditarPerfilProps {
+    user: User
+  }
 
-const EditarPerfil = () => {
-    const {data : session} = useSession()
-    if(!session){
-        redirect("/") 
-    }
-
+const EditarPerfil = ({ user }: EditarPerfilProps) => {
     return (  
         <>
         <DialogContent className="bg-white">
@@ -29,7 +28,7 @@ const EditarPerfil = () => {
                     <Input 
                         type="text"
                         id="input_name"
-                        placeholder={session.user?.name}
+                        placeholder={user.name}
                         className="w-full h-8 rounded-full border border-rose-950 bg-gray-100"
                     />  
                 </div>
@@ -39,7 +38,7 @@ const EditarPerfil = () => {
                     <Input 
                         type="text"
                         id="input_username"
-                        placeholder="@username"
+                        placeholder={user.username}
                         className="w-full h-8 rounded-full border border-rose-950 bg-gray-100"
                     />  
                 </div>
@@ -47,27 +46,27 @@ const EditarPerfil = () => {
                 <div className="w-full">
                     <Label htmlFor="input_bio" className="text-rose-950">Bio</Label>
                     <Textarea 
-                        placeholder="bio"
                         id="input_bio"
+                        placeholder={user.bio}
                         className="w-full h-8 rounded-2xl border border-rose-950 bg-gray-50"
                     />  
                 </div>
                 {/* Password */}
-                <Label htmlFor="input_username" className="place-self-start pt-3 text-rose-950 font-bold">Senha</Label>
+                <Label className="place-self-start pt-3 text-rose-950 font-bold">Senha</Label>
                 <div className="w-full">
-                    <Label htmlFor="input_username" className="text-rose-950">Senha Antiga</Label>
+                    <Label htmlFor="input_oldsenha" className="text-rose-950">Senha Antiga</Label>
                     <Input 
                         type="text"
-                        id="input_username"
+                        id="input_oldsenha"
                         placeholder="old password"
                         className="w-full h-8 rounded-full border border-rose-950 bg-gray-100"
                     />  
                 </div>
                 <div className="w-full">
-                    <Label htmlFor="input_username" className="text-rose-950">Nova Senha</Label>
+                    <Label htmlFor="input_newsenha" className="text-rose-950">Nova Senha</Label>
                     <Input 
                         type="text"
-                        id="input_username"
+                        id="input_newsenha"
                         placeholder="new password"
                         className="w-full h-8 rounded-full border border-rose-950 bg-gray-100"
                     />  

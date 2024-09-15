@@ -5,10 +5,28 @@ import { IoMdHome } from "react-icons/io";
 import { IoPersonSharp } from "react-icons/io5";
 import { MdOutlineFoodBank } from "react-icons/md";
 import { LuAlignJustify } from "react-icons/lu";
+import { IoMdLogOut } from "react-icons/io";
 
 import { Button } from "./ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "./ui/sheet"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog"
+import EditarPerfil from "./EditarPerfil";
 import { signOut, useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
+
 
 const Header2 = () => {
   const {data : session} = useSession()
@@ -41,9 +59,24 @@ const Header2 = () => {
         </div>
 
         {/* Side Sheet */}
-        <Button className="absolute right-2 md:right-5" onClick={() => signOut({callbackUrl: "/"})}>
-            <LuAlignJustify className="w-10 h-7 text-white" />
-        </Button>
+        <Sheet>
+          <SheetTrigger className="absolute right-5 md:right-10">
+              <LuAlignJustify className="w-10 h-7 text-white" />
+          </SheetTrigger>
+          <SheetContent className="flex flex-col items-center bg-white p-1 pt-12">
+            {/* Editar Perfil */}
+            <Dialog>
+              <DialogTrigger className="w-full p-1 text-rose-950 text-sm font-bold border-solid border-2 border-rose-950">Editar Perfil</DialogTrigger>
+              <EditarPerfil />
+            </Dialog>
+
+            {/* LogOut */}
+            <Button className="absolute flex gap-1 bg-rose-950 text-white text-sm font-normal h-7 rounded-md bottom-5" onClick={() => signOut({callbackUrl: "/"})}>
+                <IoMdLogOut className="w-5 h-5 text-white" />
+                Log Out
+            </Button>
+          </SheetContent>
+        </Sheet>
       </header>
     </>
   );

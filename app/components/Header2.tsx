@@ -1,5 +1,6 @@
 'use client'
 import Link from "next/link";
+import { signOut, useSession } from "next-auth/react";
 
 import { IoMdHome } from "react-icons/io";
 import { IoPersonSharp } from "react-icons/io5";
@@ -8,25 +9,9 @@ import { LuAlignJustify } from "react-icons/lu";
 import { IoMdLogOut } from "react-icons/io";
 
 import { Button } from "./ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "./ui/sheet"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "./ui/dialog"
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
+import { Dialog, DialogTrigger } from "./ui/dialog"
 import EditarPerfil from "./EditarPerfil";
-import { signOut, useSession } from "next-auth/react";
-
 
 const Header2 = () => {
   const {data : session} = useSession()
